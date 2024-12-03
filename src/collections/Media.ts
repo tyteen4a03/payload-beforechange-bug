@@ -7,10 +7,18 @@ export const Media: CollectionConfig = {
   },
   fields: [
     {
-      name: 'alt',
-      type: 'text',
-      required: true,
-    },
+      label: "Collapsible",
+      type: 'collapsible',
+      fields: [
+        {
+          name: 'alt',
+          type: 'text',
+          required: true,
+        }
+      ]
+    }
   ],
-  upload: true,
+  hooks: {
+    beforeChange: [( { operation }) => console.log(`operation: ${operation}`)]
+  }
 }
